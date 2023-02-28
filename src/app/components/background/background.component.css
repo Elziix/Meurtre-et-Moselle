@@ -1,0 +1,17 @@
+
+  .bg-image {
+    /* The image used */
+    background-image: url("https://tinyurl.com/42dee49v");
+  
+    /* Add the blur effect */
+    /*filter: blur(8px);
+    -webkit-filter: blur(8px);*/
+  
+    /* Full height */
+    height: 95vh;
+  
+    /* Center and scale the image nicely */
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }

@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { BackgroundComponent } from './components/background/background.component';
 import { ExplanationComponent } from './components/explanation/explanation.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     BackgroundComponent,
-    ExplanationComponent
+    ExplanationComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,

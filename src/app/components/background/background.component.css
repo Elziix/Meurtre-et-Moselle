@@ -3,11 +3,11 @@
     background-image: url("https://tinyurl.com/42dee49v");
 
     background-position: top;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: 100%;
   
     /* Full height */
-    height: 95vh;
+    height: 195vh;
   } 
 
   .blur{

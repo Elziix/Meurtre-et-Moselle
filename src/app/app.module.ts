@@ -7,6 +7,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { BackgroundComponent } from './components/background/background.component';
 import { ExplanationComponent } from './components/explanation/explanation.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
     ToolbarComponent,
     BackgroundComponent,
     ExplanationComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

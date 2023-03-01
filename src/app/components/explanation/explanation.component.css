@@ -1,0 +1,25 @@
+@font-face {
+    font-family: Monsterrat;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    font-stretch : normal;
+    font-weight : normal;
+    font-style : normal;
+}
+
+h1{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    text-size-adjust: mb3;
+    color: white;
+    
+}
+
+p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align:inherit;
+    text-shadow: shadow-1-strong ;
+    text-justify:inherit;
+    text-size-adjust: 20px ;
+    color:aliceblue;
+    font-size: 150%;
+}

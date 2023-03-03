@@ -10,6 +10,7 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { CardComponent } from './components/card/card.component';
 import { AboutComponent } from './components/about/about.component';
 import { UpArrowComponent } from './components/up-arrow/up-arrow.component';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UpArrowComponent } from './components/up-arrow/up-arrow.component';
     SearchbarComponent,
     CardComponent,
     AboutComponent,
-    UpArrowComponent
+    UpArrowComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

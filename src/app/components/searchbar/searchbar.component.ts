@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-searchbar',
@@ -8,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class SearchbarComponent implements OnInit {
 
   constructor() { }
+  
+  ngOnInit(): void { 
 
-  ngOnInit(): void {
+  }
+
+  @ViewChild('search') search: ElementRef | undefined;
+  getValue() {
+    // Afficher la valeur
+    alert(this.search?.nativeElement.value);
   }
 
 }

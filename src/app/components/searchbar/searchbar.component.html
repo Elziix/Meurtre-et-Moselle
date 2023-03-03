@@ -8,17 +8,22 @@
           <form action="">
             <div class="p-2 bg-dark rounded rounded-pill shadow-sm mb-4">
               <div class="input-group">
-                <input type="search" placeholder="Entrez un département, une ville, un code postal" aria-describedby="button-addon1" class="form-control border-0 bg-dark text-white">
+                <input type="search" #search placeholder="Entrez un département, une ville, un code postal" aria-describedby="button-addon1" class="form-control border-0 bg-dark text-white" id="search">
                 <div class="input-group-append px-1">
-                    <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm bg-dark border border-danger">Search</button>
+                    <button type="submit" (click)="getValue()" class="btn btn-primary rounded-pill btn-block shadow-sm bg-dark border border-danger">Search</button>
                 </div>
               </div>
             </div>
            
           </form>
           <!-- End -->
-  
+          <input type="text" placeholder="Entrez une valeur ici" #search>
+          <button type="button" (click)="getValue()">Récupérer la valeur</button>
+
+      
       
       </div>
     </div>
   </div>
+  
+

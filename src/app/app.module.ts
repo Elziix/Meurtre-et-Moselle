@@ -8,6 +8,8 @@ import { BackgroundComponent } from './components/background/background.componen
 import { ExplanationComponent } from './components/explanation/explanation.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { CardComponent } from './components/card/card.component';
+import { AboutComponent } from './components/about/about.component';
+import { UpArrowComponent } from './components/up-arrow/up-arrow.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CardComponent } from './components/card/card.component';
     BackgroundComponent,
     ExplanationComponent,
     SearchbarComponent,
-    CardComponent
+    CardComponent,
+    AboutComponent,
+    UpArrowComponent
   ],
   imports: [
     BrowserModule,

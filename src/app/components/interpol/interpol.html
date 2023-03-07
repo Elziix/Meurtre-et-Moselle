@@ -1,4 +1,39 @@
-<div>
-    <iframe src="https://ws-public.interpol.int/notices/v1/red/2022-83296" frameborder="0"
-      style="border:0" allowfullscreen></iframe>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>interpol</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+      <header>
+
+      </header>
+
+      <section>
+
+      </section>
+
+      <script>
+
+async function populate() {
+
+const requestURL = 'file:///info/etu/l3info/s193522/Documents/angular/Meutre-et-Moselle/src/app/components/interpol/interpol.json';
+const request = new Request(requestURL);
+
+const response = await fetch(request);
+const criminel = await response.json();
+
+populateHeader(criminel);
+populateCrim(criminel);
+
+}
+
+      </script>
+  </body>
+</html>

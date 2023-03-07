@@ -11,6 +11,7 @@ import { CardComponent } from './components/card/card.component';
 import { AboutComponent } from './components/about/about.component';
 import { UpArrowComponent } from './components/up-arrow/up-arrow.component';
 import { MapComponent } from './components/map/map.component';
+import { MapBoxComponent } from './components/map-box/map-box.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MapComponent } from './components/map/map.component';
     CardComponent,
     AboutComponent,
     UpArrowComponent,
-    MapComponent
+    MapComponent,
+    MapBoxComponent
   ],
   imports: [
     BrowserModule,

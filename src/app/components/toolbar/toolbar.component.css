@@ -1,3 +1,13 @@
 .fit-picture {
     width: 40px;
 }
+
+a{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align:inherit;
+    text-shadow: shadow-1-strong ;
+    text-justify:inherit;
+    text-size-adjust: 20px ;
+    color:aliceblue;
+    font-size: 120%;
+}

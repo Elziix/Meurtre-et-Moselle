@@ -10,9 +10,9 @@ import * as mapboxgl from 'mapbox-gl';
 export class MapBoxComponent implements OnInit {
 
   map?: mapboxgl.Map;
-  style = 'mapbox://styles/mapbox/streets-v11';
-  lat = 55.665957;
-  lng = 12.550343;
+  style = 'mapbox://styles/mapbox/streets-v12';
+  lat = 47;
+  lng = 2.5;
 
   constructor() { }
 
@@ -22,7 +22,7 @@ export class MapBoxComponent implements OnInit {
     const map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
-      zoom: 8,
+      zoom: 5,
       center: [this.lng, this.lat]
     });
 
@@ -34,7 +34,7 @@ export class MapBoxComponent implements OnInit {
       marker.setLngLat(coordinates).addTo(map);
     }
 
-    map.dragRotate.disable();
+    //map.dragRotate.disable();
 
     map.on('click', add_marker);
 

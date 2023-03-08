@@ -10,7 +10,6 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { CardComponent } from './components/card/card.component';
 import { AboutComponent } from './components/about/about.component';
 import { UpArrowComponent } from './components/up-arrow/up-arrow.component';
-import { MapComponent } from './components/map/map.component';
 import { MapBoxComponent } from './components/map-box/map-box.component';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { MapBoxComponent } from './components/map-box/map-box.component';
     CardComponent,
     AboutComponent,
     UpArrowComponent,
-    MapComponent,
     MapBoxComponent
   ],
   imports: [

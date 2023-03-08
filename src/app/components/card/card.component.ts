@@ -5,9 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
 
-  constructor() { }
+export class CardComponent implements OnInit {
+  Liste_tueur :Array<Tueur> =new Array;
+
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
   }

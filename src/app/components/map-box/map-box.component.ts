@@ -28,7 +28,7 @@ export class MapBoxComponent implements OnInit {
 
     var marker = new mapboxgl.Marker();
 
-    function add_marker(event: { lngLat: mapboxgl.LngLat; carte: mapboxgl.Map;}) {
+    function add_marker(event: { lngLat: mapboxgl.LngLat; }) {
       const coordinates = event.lngLat;
       console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
       marker.setLngLat(coordinates).addTo(map);

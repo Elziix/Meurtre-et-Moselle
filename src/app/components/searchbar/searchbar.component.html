@@ -1,24 +1,20 @@
 <div class="container">
-    
-    <div class="row mb-4">
-      <div class="col-lg-8 mx-auto">
-   
-  
-          <!-- Custom rounded search bars with input group -->
-          <form action="">
-            <div class="p-2 bg-dark rounded rounded-pill shadow-sm mb-4">
-              <div class="input-group">
-                <input type="search" #search placeholder="Entrez un département, une ville, un code postal" aria-describedby="button-addon1" class="form-control border-0 bg-dark text-white" id="search">
-                <div class="input-group-append px-1">
-                    <button type="submit" (click)="getValue()" class="btn btn-primary rounded-pill btn-block shadow-sm bg-dark border border-danger">Search</button>
-                </div>
-              </div>
+  <div class="row mb-4">
+    <div class="col-lg-8 mx-auto">
+      <form>
+        <div class="p-2 bg-dark rounded rounded-pill shadow-sm mb-4">
+          <div class="input-group">
+            <input type="search" [(ngModel)]="nomCommune" placeholder="Entrez un département, une ville, un code postal" aria-describedby="button-addon1" class="form-control border-0 bg-dark text-white" id="search" name="nomCommune">
+            <div class="input-group-append px-1">
+              <button type="button" (click)="search()" class="btn btn-primary rounded-pill btn-block shadow-sm bg-dark border border-danger">Search</button>
             </div>
-           
-          </form>
-          <!-- End -->
+          </div>
+        </div>
+      </form>
+      <div *ngIf="coords">
+        <p>Latitude: {{coords.lat}}</p>
+        <p>Longitude: {{coords.lng}}</p>
       </div>
     </div>
   </div>
-  
-
+</div>

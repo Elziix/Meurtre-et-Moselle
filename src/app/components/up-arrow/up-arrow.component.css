@@ -1,7 +1,3 @@
-body{
-    background-color:#9575CD;
-}
-
 .scroll{
     color:#fff;
     margin-top:100px;
@@ -36,7 +32,7 @@ body{
     bottom: var(--cd-back-to-top-margin);
     right: 20px;
     right: var(--cd-back-to-top-margin);
-    display: inline-block;
+    display: block;
     height: 40px;
     height: var(--cd-back-to-top-size);
     width: 40px;
@@ -48,5 +44,5 @@ body{
 }
 
 .height{
-    height:3000px;
+    height:50px;
 }

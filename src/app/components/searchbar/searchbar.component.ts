@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {getLatitudeLongitude} from "../../app.component"
-//import {add_marker} from "../map-box/map-box.component"
+import { MapBoxComponent } from '../map-box/map-box.component';
 
 @Component({
   selector: 'app-searchbar',
@@ -9,19 +9,19 @@ import {getLatitudeLongitude} from "../../app.component"
 })
 export class SearchbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mapBoxComponent: MapBoxComponent) { }
   
   ngOnInit(): void { 
     
   }
 
   nomCommune: string = '';
-  coords: { latitude: number, longitude: number } | undefined = undefined;
-
+  coords: { lat: number, lng: number } | undefined = undefined;
+  
   async search() {
-    this.coords = await getLatitudeLongitude(this.nomCommune);
-    //add_marker(this.coords);
+    //this.coords = await getLatitudeLongitude(this.nomCommune);
+      this.mapBoxComponent.searchCity(this.nomCommune);
+    }
   }
 
 
-}

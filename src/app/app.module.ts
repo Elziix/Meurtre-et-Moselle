@@ -30,7 +30,7 @@ import { MapBoxComponent } from './components/map-box/map-box.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [MapBoxComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

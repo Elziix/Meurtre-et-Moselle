@@ -61,13 +61,15 @@ export async function getLatitudeLongitude(nomCommune : String) {
     const data = await response.json();
 
     // Récupération des coordonnées de la commune
-    const latitude = data[0].centre.coordinates[1];
-    const longitude = data[0].centre.coordinates[0];
+    const lat = data[0].centre.coordinates[1];
+    const lng = data[0].centre.coordinates[0];
+
+    console.log(lat,lng);
 
     // Retourne un objet contenant la latitude et la longitude
     return {
-      latitude,
-      longitude
+      lat,
+      lng
     };
   } catch (error) {
     // En cas d'erreur, affiche le message d'erreur dans la console

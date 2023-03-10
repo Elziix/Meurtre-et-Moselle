@@ -1,5 +1,5 @@
 <div class="card-group mx-3">
-    <div *ngFor="let Tueur of Liste_Tueur">
+    <div *ngFor="let Tueur of Liste_tueur">
         <div class="card bg-dark text-center mx-3 border border-secondary border-3" style="width: 15rem;">
             <img src="https://ds.static.rtbf.be/article/image/1239x1920/8/1/c/60a97effccb58b6d49e515cd2b20858a-1343728964.jpg" class="card-img-top" alt="...">
             <div class="card-body">
@@ -9,12 +9,12 @@
             <ul class="list-group list-group-flush bg-dark">
             <li class="list-group-item bg-dark text-white">{{Tueur.crime}}</li>
             <li class="list-group-item bg-dark text-white">{{Tueur.date}}</li>
-            <li class="list-group-item bg-dark text-white">{{Tueur.Lieu}}</li>
+            <li class="list-group-item bg-dark text-white">{{Tueur.lieu}}</li>
             </ul>
             <div class="card-body">
             <a href={{Tueur.WikiLink}} class="card-link">Wikipedia</a>
             <a href="#" class="card-link">Another link</a>
             </div>
         </div>
-    </div>
+   </div>
 </div>

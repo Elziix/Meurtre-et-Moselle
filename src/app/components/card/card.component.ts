@@ -8,6 +8,7 @@ interface Tueur {
   crime: string;
   date: string;
   WikiLink :string;
+  WikiPhoto :string;
 }
 
 @Component({
@@ -24,18 +25,21 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const url: string = "Access-Control-Allow-Origin https://fr.wikipedia.org/w/api.php?action=query&titles=Liste_d%27affaires_criminelles_françaises&prop=revisions&rvprop=content&format=json";
-
+    const url= "./wikipedia.json"
     fetch(url)
-      .then(response => response.json())
-      .then((data: any) => {
-        const pages = data.query.pages;
-        const pageId = Object.keys(pages)[0];
-        const pageContent = pages[pageId].revisions[0]['*'];
+      .then(response => response.json()) 
+
+        const data = JSON.parse(url);
+
+        console.log(data.query.pages["498241"].revisions[0].contentformat); // "text/x-wiki"
+        console.log(data.query.pages["498241"].revisions[0]["*"]); // "wikitext"
+        const pageContent=data.query.pages["498241"].revisions[0]["*"]; // "{{À wikifier|date=novembre 2020}}\nCette page présente de manière non exhaustive des '''affaires [[Crime en France|criminelles françaises]]''' notoires, et rédactionnées sur Wikipédia.\n\n== Liste partielle ==\n=== Jusqu'en 1900 ===\n{{Article détaillé|Liste d'affaires criminelles françaises}}"
+
 
         // utilisation de regex pour extraire les informations souhaitées
-        // refaire le parsing
-        const regex: RegExp = /^-\n\|\[\[(\d{4})\]\]\n\|\[\[(.+?)\]\]\n\|\[\[(.+?)\|(.+?)\]\]\n\|(.+?)\n\|(.+?)\./m;
+        //const regex: RegExp = /^-\n\|\[\[(\d{4})\]\]\n\|\[\[(.+?)\]\]\n\|\[\[(.+?)\|(.+?)\]\]\n\|(.+?)\n\|(.+?)\./m;
+        
+        const regex: RegExp = /Françaises/m;
         const match = pageContent.match(regex);
         if (match) {
         const date: string = match[1];
@@ -51,14 +55,16 @@ export class CardComponent implements OnInit {
               nom: title,
               description: description,
               lieu: place,
-              crime: "",
+              crime: crime,
               date: date,
-              WikiLink:"https://fr.wikipedia.org/wiki/"+title
+              WikiLink:"https://fr.wikipedia.org/wiki/"+title,
+              WikiPhoto:""
+
             });
         } else {
           console.log("Impossible de trouver les informations requises");
         }
-      })
-      .catch(error => console.error(error));
-  }
+      }
+      
 }
+

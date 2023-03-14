@@ -1,25 +1,8 @@
 {
-    "batchcomplete": "",
-    "warnings": {
-        "main": {
-            "*": "Subscribe to the mediawiki-api-announce mailing list at <https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/> for notice of API deprecations and breaking changes. Use [[Special:ApiFeatureUsage]] to see usage of deprecated features by your application."
-        },
-        "revisions": {
-            "*": "Because \"rvslots\" was not specified, a legacy format has been used for the output. This format is deprecated, and in the future the new format will always be used."
-        }
-    },
+
     "query": {
-        "normalized": [
-            {
-                "from": "Liste_d'affaires_criminelles_françaises",
-                "to": "Liste d'affaires criminelles françaises"
-            }
-        ],
         "pages": {
             "498241": {
-                "pageid": 498241,
-                "ns": 0,
-                "title": "Liste d'affaires criminelles françaises",
                 "revisions": [
                     {
                         "contentformat": "text/x-wiki",

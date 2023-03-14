@@ -1,7 +1,7 @@
 <div class="card-group mx-3">
     <div *ngFor="let Tueur of Liste_tueur">
         <div class="card bg-dark text-center mx-3 border border-secondary border-3" style="width: 15rem;">
-            <img src="https://ds.static.rtbf.be/article/image/1239x1920/8/1/c/60a97effccb58b6d49e515cd2b20858a-1343728964.jpg" class="card-img-top" alt="...">
+            <img src={{Tueur.WikiPhoto}} class="card-img-top" alt="...">
             <div class="card-body">
             <h5 class="card-title text-danger">{{Tueur.nom}}</h5>
             <p class="card-text text-white">{{Tueur.description}}</p>

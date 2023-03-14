@@ -1,27 +1,25 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {getLatitudeLongitude} from "../../app.component"
-import { MapBoxComponent } from '../map-box/map-box.component';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { getLatitudeLongitude } from '../../app.component';
 
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
-  styleUrls: ['./searchbar.component.css']
+  styleUrls: ['./searchbar.component.css'],
 })
 export class SearchbarComponent implements OnInit {
-
-  constructor(private mapBoxComponent: MapBoxComponent) { }
-  
-  ngOnInit(): void { 
-    
-  }
+  @Output() citySelected = new EventEmitter<string>();
 
   nomCommune: string = '';
   coords: { lat: number, lng: number } | undefined = undefined;
-  
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
   async search() {
-    //this.coords = await getLatitudeLongitude(this.nomCommune);
-      this.mapBoxComponent.searchCity(this.nomCommune);
+    const coords = await getLatitudeLongitude(this.nomCommune);
+    if (coords) {
+      this.citySelected.emit(this.nomCommune);
     }
   }
-
-
+}

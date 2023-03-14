@@ -8,10 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dashfront';
+  departement = '';
 }
 
 const apiUrl = "https://geo.api.gouv.fr/communes"; // URL de l'API Geo de l'API Gouv
 const apiUrlDep = "https://geo.api.gouv.fr/departements";
+
+async function onSearchCity(city: string) {
+  const coord = await getLatitudeLongitude(city);
+  const { code } = await getCityData(coord?.lng, coord?.lat);
+  const departement = code.substring(0, 2); // On récupère les deux premiers caractères du code postal qui correspondent au code du département
+}
 
 export async function getCityData(lati: number, longi: number) {
   const url = `${apiUrl}?lat=${lati}&lon=${longi}&fields=nom,code,codesPostaux,siren,codeEpci,codeDepartement,codeRegion,population&format=json`;
@@ -33,7 +40,7 @@ export async function getCityData(lati: number, longi: number) {
   }
 }
 
-async function getDepartment(dep: number) {
+export async function getDepartment(dep: number) {
   const url = `${apiUrlDep}?code=${dep}&fields=nom,code,codeRegion`
 
   try {
@@ -44,14 +51,14 @@ async function getDepartment(dep: number) {
     const data = await response.json();
 
     // Renvoyer les données de la première ville trouvée
-    
+
     return data[0];
   } catch (error) {
     console.error(error);
   }
 }
 
-export async function getLatitudeLongitude(nomCommune : String) {
+export async function getLatitudeLongitude(nomCommune: String) {
   // URL de la requête avec le nom de la commune en paramètre
   const url = `${apiUrl}?nom="${nomCommune}"&fields=centre&format=json&geometry=centre`;
 
@@ -64,7 +71,7 @@ export async function getLatitudeLongitude(nomCommune : String) {
     const lat = data[0].centre.coordinates[1];
     const lng = data[0].centre.coordinates[0];
 
-    console.log(lat,lng);
+    console.log(lat, lng);
 
     // Retourne un objet contenant la latitude et la longitude
     return {

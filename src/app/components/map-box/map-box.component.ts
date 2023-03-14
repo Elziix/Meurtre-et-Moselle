@@ -18,7 +18,7 @@ import { getCityData, getLatitudeLongitude } from "../../app.component"
   styleUrls: ['./map-box.component.css']
 })
 export class MapBoxComponent implements OnInit {
-
+  
   /**
    * Carte MapBox.
    */
@@ -103,7 +103,7 @@ export class MapBoxComponent implements OnInit {
       // On zoom sur l'endroit marqué
       this.map.flyTo({ center: coordinates, zoom: 8 });
     }
-  
+
     // Appelle la fonction getCityData nous donnant les informations concernant les coordonées clickées
     getCityData(coordinates.lat, coordinates.lng).then(cityData => {
       console.log(cityData);

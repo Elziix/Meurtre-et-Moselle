@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { getLatitudeLongitude } from '../../app.component';
+import { getCityData, getDepartment, getLatitudeLongitude } from '../../app.component';
+import { SharedService } from '../shared.service';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-searchbar',
@@ -10,6 +12,7 @@ export class SearchbarComponent implements OnInit {
 
   // citySelected est considéré comme un evenement de type String
   @Output() citySelected = new EventEmitter<string>();
+  //@Output() depSelected = new EventEmitter<string>();
 
   // Le nom de la commune recherchée
   nomCommune: string = '';
@@ -17,16 +20,24 @@ export class SearchbarComponent implements OnInit {
   // Les coordonées de cette commune
   coords: { lat: number, lng: number } | undefined = undefined;
 
-  constructor() {}
+  constructor(private sharedService: SharedService, private cardComponent : CardComponent) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   // Fonction asynchrone appelant searchCity avec le nom de la commune
   async search() {
     const coords = await getLatitudeLongitude(this.nomCommune);
     if (coords) {
-      // On envoie l'output à map-box.component
+      const cityData = await getCityData(coords?.lat, coords?.lng);
+      const depCode = cityData.codeDepartement;
+      const dep = await getDepartment(depCode);
+      const depName = dep.nom;
+    
       this.citySelected.emit(this.nomCommune);
+      //this.depSelected.emit(depName);
+      this.sharedService.setDepName(depName);
+      this.cardComponent.fetchAffaires();
+
     }
   }
 }

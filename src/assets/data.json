@@ -1,0 +1,80 @@
+{
+    "entries": [
+        {
+            "date": "1905 - 1908",
+            "departement": "Drôme",
+            "WikiPhoto": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Execution_of_Liottard_and_Berruyer_and_David_in_1909_4.jpg",
+            "WikiLink": "https://fr.wikipedia.org/wiki/Chauffeurs_de_la_Dr%C3%B4me",
+            "affaire": "Chauffeurs de la Drôme",
+            "resume": "De 1905 à 1908 dans la Drôme, actes de brigandage suivis d'assassinats par Urbain Liottard, Octave David et Louis Berruyer. Urbain Liottard est condamné le 10 juillet 1909 à la peine de mort, Octave David à la peine de mort, Louis Berruyer à la peine de mort par les assises de la Drôme. Guillotinés le 22 septembre 1909 à Valence."
+        },
+        {
+            "date": "31 janvier 1907",
+            "departement": "Seine",
+            "WikiPhoto": "https://upload.wikimedia.org/wikipedia/commons/3/37/Albert_Soleilland_-_photos_d%27identit%C3%A9_judiciaire.jpg",
+            "WikiLink": "https://fr.wikipedia.org/wiki/Albert_Soleilland",
+            "affaire": "Affaire Soleilland",
+            "resume": "Le 31 janvier 1907 à Paris, meurtre de Marthe Erbelding, onze ans, après l'avoir violée et poignardée. Albert Soleilland est condamné le 23 juillet 1907 à la peine de mort. Gracié, meurt au bagne en 1920 après 13 ans de détention."
+        },
+        {
+            "date": "1907",
+            "departement": "Gironde",
+            "affaire": "Crime de Langon",
+            "resume": "Le 6 février 1907 à Langon, assassinat crapuleux d'un agent d'assurance, Jean-Théodore Monget étranglé avec une serviette, commis par Jean-Eugène Branchery et Henri Parrot. Jean-Eugène Branchery est condamné le 29 février 1908 à la peine de mort, Henri Parrot à la peine de mort par les assises de la Gironde. Graciés le 18 juillet 1908. Suites inconnues."
+        },
+        {
+            "date": "1909",
+            "departement": "Seine-et-Oise",
+            "affaire": "Affaire Bourette",
+            "resume": "Le 22 octobre 1909 au Vésinet, empoisonnement du ténor belge Jules Godart par Marie Bourette. Marie Bourette est condamné le 13 juillet 1910 aux travaux forcés à perpétuité par les assises de Seine-et-Oise. Suites inconnues."
+        },
+        {
+            "date": "1910",
+            "departement": "Seine",
+            "affaire": "Affaire Liabeuf",
+            "resume": "Le 8 janvier 1910 à Paris, assassinat d'un policier par Jean-Jacques Liabeuf cordonnier, estimant avoir été condamné à tort pour proxénétisme. Jean-Jacques Liabeuf est condamné le 4 mai 1910 à la peine de mort par les assises de la Seine. Exécuté par décapitation le 1er juillet 1910 à Paris."
+        },
+        {
+            "date": "1910",
+            "departement": "Seine-Inférieure",
+            "affaire": "Affaire Durand",
+            "resume": "Le 9 septembre 1910 au Havre, meurtre de Louis Dongé au cours d'une rixe lors d'une grève."
+        },
+        {
+            "date": "1911-1912",
+            "departement": "Paris, Val-de-Marne, Val-d'Oise, Oise",
+            "affaire": "La Bande à Bonnot",
+            "resume": "Série de braquages et de meurtres. Les méfaits de la bande inspirent notamment un film, sorti en 1968."
+        },
+        {
+            "date": "1913",
+            "departement": "Loire-Atlantique",
+            "affaire": "Affaire Marcel Redureau",
+            "resume": "Meurtre de sept personnes le 30 septembre 1913, dans le village de Bas-Briacé, commune du Landreau. Un adolescent de quinze ans, Marcel Redureau, avoue être l'auteur des faits1. L'affaire intéresse notamment Gide, qui publie à son sujet en 1930 un recueil de documents."
+        },
+        {
+            "date": "1914",
+            "departement": "Paris",
+            "affaire": "Affaire Caillaux",
+            "resume": "Assassinat du directeur du Figaro, Gaston Calmette, le 16 mars 1914, par l'épouse de Joseph Caillaux, irritée par une campagne de presse dirigée contre son mari, ministre des Finances du gouvernement Doumergue. Le président de la République fait une déposition au cours du procès. Henriette Caillaux sera finalement acquittée, son crime étant considéré comme un crime passionnel."
+        },
+        {
+            "date": "1914",
+            "departement": "Paris",
+            "affaire": "Affaire Villain",
+            "resume": "Assassinat du leader socialiste Jean Jaurès, le 31 juillet 1914 par Raoul Villain."
+        },
+        {
+            "date": "1915-1919",
+            "departement": "Yvelines",
+            "affaire": "Affaire Landru",
+            "resume": "Assassinat de onze femmes entre février 1915 et janvier 1919 à Vernouillet et à Gambais par Henri Désiré Landru. L'affaire inspire un film en 1947 de Charlie Chaplin, et plus explicitement un film de Claude Chabrol en 1963."
+        },
+        {
+            "date": "1916",
+            "departement": "Algérie française",
+            "affaire": "Affaire de Foucauld",
+            "resume": "Assassinat de Charles de Foucauld 58 ans prêtre ermite le 1er décembre 1916 dans le Sahara algérien abattu par des pillards."
+        }
+    ]
+}

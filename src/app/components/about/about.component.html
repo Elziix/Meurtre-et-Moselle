@@ -1,1 +1,6 @@
-<p>Le projet Meurtre et Moselle a été créé par une équipe de 3 étudiants en 3ème année de licence informatique de l'institut Claude Chape à l'université du Mans</p>
+<button (click)="openPopup()">À propos de nous</button>
+<div *ngIf="showPopup" class="popup">
+  <h2>Notre entreprise</h2>
+  <p>Nous sommes une entreprise spécialisée dans la vente de produits high-tech.</p>
+  <button (click)="closePopup()">Fermer</button>
+</div>

@@ -63,18 +63,16 @@ export class MapBoxComponent implements OnInit {
   
   searchCity(city: string) {
     console.log("entre dans searchCity : " + city);
-    getLatitudeLongitude(city).then(coords => {
+    const coords = getLatitudeLongitude(city)
+
       console.log("entre dans getlati");
-      const coo = new mapboxgl.LngLat(coords?.lng, coords?.lat);
-      console.log(coo);
+      //const coo = new mapboxgl.LngLat(coords?.lng, coords?.lat);
+      //console.log(coo);
       //const mark = new mapboxgl.Marker();
-      this.add_mark(coo);
+      //this.add_mark(coo);
       //console.log("set marker");
         //this.map!.flyTo({ center: [coords!.lng, coords!.lat], zoom: 12 });
      // }
-    }.bind(this));
-  }
-}
-
+    }
 }
 

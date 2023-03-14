@@ -46,6 +46,7 @@ export class MapBoxComponent implements OnInit {
     }
     if (this.map && this.marker) {
       this.marker.setLngLat(coordinates).addTo(this.map);
+      this.map.flyTo({ center: coordinates, zoom: 8 });
     }
     console.log("marker ajouté");
 
@@ -55,19 +56,6 @@ export class MapBoxComponent implements OnInit {
     });
   }
 
-  add_mark(lngLat: mapboxgl.LngLat){
-    console.log("entre add_mark");
-    const coordinates = lngLat;
-    console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
-    if(this.map!){
-      console.log("map exists");
-      if (this.map && this.marker) {
-        this.marker.setLngLat(coordinates).addTo(this.map);
-      }
-      console.log("marker ajouté");
-    }
-  }
-  
   // Cette fonction prends une ville en paramètre, recherche les coordonnées de cette ville et ajoute un markeur à cet endroit de la map
   searchCity(city: string) {
     console.log('entre dans searchCity : ' + city);
@@ -76,7 +64,7 @@ export class MapBoxComponent implements OnInit {
         console.log('Coordonnées de la ville', coords);
         if (this.map && coords) {
           this.marker?.setLngLat(coords).addTo(this.map);
-          this.map.flyTo({ center: coords, zoom: 10 });
+          this.map.flyTo({ center: coords, zoom: 8 });
         }
       })
       .catch((err) => {

@@ -1,15 +1,15 @@
 <div class="card-group mx-3">
-    <div *ngFor="let Tueur of Liste_tueur">
+    <div *ngFor="let Tueur of listeAffaires">
         <div class="card bg-dark text-center mx-3 border border-secondary border-3" style="width: 15rem;">
             <img src={{Tueur.WikiPhoto}} class="card-img-top" alt="...">
             <div class="card-body">
-            <h5 class="card-title text-danger">{{Tueur.nom}}</h5>
-            <p class="card-text text-white">{{Tueur.description}}</p>
+            <h5 class="card-title text-danger">{{Tueur.affaire}}</h5>
+            <p class="card-text text-white">{{Tueur.resume}}</p>
             </div>
             <ul class="list-group list-group-flush bg-dark">
-            <li class="list-group-item bg-dark text-white">{{Tueur.crime}}</li>
+            <li class="list-group-item bg-dark text-white">{{Tueur.comments}}</li>
             <li class="list-group-item bg-dark text-white">{{Tueur.date}}</li>
-            <li class="list-group-item bg-dark text-white">{{Tueur.lieu}}</li>
+            <li class="list-group-item bg-dark text-white">{{Tueur.departement}}</li>
             </ul>
             <div class="card-body">
             <a href={{Tueur.WikiLink}} class="card-link">Wikipedia</a>

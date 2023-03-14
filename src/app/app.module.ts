@@ -12,6 +12,7 @@ import { CardComponent } from './components/card/card.component';
 import { AboutComponent } from './components/about/about.component';
 import { UpArrowComponent } from './components/up-arrow/up-arrow.component';
 import { MapBoxComponent } from './components/map-box/map-box.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MapBoxComponent } from './components/map-box/map-box.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [MapBoxComponent],
   bootstrap: [AppComponent]

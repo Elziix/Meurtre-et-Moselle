@@ -1,14 +1,16 @@
-
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 interface Tueur {
-  nom: string;
-  description: string;
-  lieu: string;
-  crime: string;
   date: string;
-  WikiLink :string;
-  WikiPhoto :string;
+  departement: string;
+  affaire: string;
+  resume: string;
+  comments: string;
+  WikiPhoto : null;
+  WikiLink : null;
 }
 
 @Component({
@@ -18,53 +20,29 @@ interface Tueur {
 })
 
 export class CardComponent implements OnInit {
-  Liste_tueur: Array<Tueur> = [];
+  listeAffaires: Array<Tueur> = [];
 
-  constructor() {
-    
-  }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    const url= "./wikipedia.json"
-    fetch(url)
-      .then(response => response.json()) 
-
-        const data = JSON.parse(url);
-
-        console.log(data.query.pages["498241"].revisions[0].contentformat); // "text/x-wiki"
-        console.log(data.query.pages["498241"].revisions[0]["*"]); // "wikitext"
-        const pageContent=data.query.pages["498241"].revisions[0]["*"]; // "{{À wikifier|date=novembre 2020}}\nCette page présente de manière non exhaustive des '''affaires [[Crime en France|criminelles françaises]]''' notoires, et rédactionnées sur Wikipédia.\n\n== Liste partielle ==\n=== Jusqu'en 1900 ===\n{{Article détaillé|Liste d'affaires criminelles françaises}}"
-
-
-        // utilisation de regex pour extraire les informations souhaitées
-        //const regex: RegExp = /^-\n\|\[\[(\d{4})\]\]\n\|\[\[(.+?)\]\]\n\|\[\[(.+?)\|(.+?)\]\]\n\|(.+?)\n\|(.+?)\./m;
-        
-        const regex: RegExp = /Françaises/m;
-        const match = pageContent.match(regex);
-        if (match) {
-        const date: string = match[1];
-        const place: string = match[2];
-        const crime: string = match[4];
-        const title: string = match[3];
-        const description: string = match[5];
-        
-        console.log(`Date: ${date}\nLieu: ${place}\nTitre: ${title}\nCrime: ${crime}\nDescription: ${description}`);
-
-            // Ajout de valeurs au tableau Liste_tueur
-            this.Liste_tueur.push({
-              nom: title,
-              description: description,
-              lieu: place,
-              crime: crime,
-              date: date,
-              WikiLink:"https://fr.wikipedia.org/wiki/"+title,
-              WikiPhoto:""
-
-            });
-        } else {
-          console.log("Impossible de trouver les informations requises");
-        }
-      }
-      
+    const url = './assets/data.json';
+    this.http.get(url).pipe(
+      map((data: any) => {
+        const entries = data.entries;
+        entries.forEach((entry: any) => {
+          this.listeAffaires.push({
+            date: entry.date,
+            departement: entry.departement,
+            affaire: entry.affaire,
+            resume: entry.resume,
+            comments: entry.comments,
+            WikiPhoto: null,
+            WikiLink : null
+            
+          });
+          console.log(this.listeAffaires[0]);
+        });
+      })
+    ).subscribe();
+  }
 }
-

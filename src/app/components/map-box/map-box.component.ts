@@ -129,7 +129,7 @@ export class MapBoxComponent implements OnInit {
           this.map.flyTo({ center: coords, zoom: 8 });
         }
       })
-      // Si une erreur est rencontrée on l'affiche dans la console
+      // Si une erreur est rencontrée on l'affiche la console
       .catch((err) => {
         console.error(
           'Erreur lors de la récupération des coordonnées de la ville',

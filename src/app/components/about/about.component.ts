@@ -15,4 +15,9 @@ export class AboutComponent {
   closePopup() {
     this.showPopup = false;
   }
+
+  openAboutPopup() {
+    this.showPopup = true;
+  }
 }
+

@@ -7,7 +7,7 @@ import { AboutComponent } from '../about/about.component';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-  @ViewChild(AboutComponent) aboutComponent: AboutComponent;
+  @ViewChild(AboutComponent) aboutComponent!: AboutComponent;
 
   constructor() { }
 

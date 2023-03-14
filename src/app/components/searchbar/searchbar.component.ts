@@ -1,6 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {getLatitudeLongitude} from "../../app.component"
+import * as mapboxgl from 'mapbox-gl';
+import {getCityData, getLatitudeLongitude, getDepartment} from "../../app.component"
 import { MapBoxComponent } from '../map-box/map-box.component';
+import { HttpClient } from '@angular/common/http';
+import { getAffairesByDepartement } from '../card/card.component';
+
 
 @Component({
   selector: 'app-searchbar',
@@ -9,19 +13,24 @@ import { MapBoxComponent } from '../map-box/map-box.component';
 })
 export class SearchbarComponent implements OnInit {
 
-  constructor(private mapBoxComponent: MapBoxComponent) { }
+  constructor(private http: HttpClient) { }
   
   ngOnInit(): void { 
     
   }
 
   nomCommune: string = '';
-  coords: { lat: number, lng: number } | undefined = undefined;
+  coords: { lat: number, lng: number } | undefined;
   
   async search() {
-    //this.coords = await getLatitudeLongitude(this.nomCommune);
-      this.mapBoxComponent.searchCity(this.nomCommune);
+      const coords = await getLatitudeLongitude(this.nomCommune);
+      const data = await getCityData(coords?.lat, coords?.lng)
+      const dep = await getDepartment(data);
+      console.log(dep);
+      getAffairesByDepartement("Drôme");
+
+      
     }
-  }
+}
 
 

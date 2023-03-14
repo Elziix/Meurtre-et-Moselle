@@ -13,7 +13,7 @@ export class AppComponent {
 const apiUrl = "https://geo.api.gouv.fr/communes"; // URL de l'API Geo de l'API Gouv
 const apiUrlDep = "https://geo.api.gouv.fr/departements";
 
-export async function getCityData(lati: number, longi: number) {
+export async function getCityData(lati: number | undefined, longi: number | undefined) {
   const url = `${apiUrl}?lat=${lati}&lon=${longi}&fields=nom,code,codesPostaux,siren,codeEpci,codeDepartement,codeRegion,population&format=json`;
 
   try {
@@ -33,7 +33,7 @@ export async function getCityData(lati: number, longi: number) {
   }
 }
 
-async function getDepartment(dep: number) {
+export async function getDepartment(dep: number) {
   const url = `${apiUrlDep}?code=${dep}&fields=nom,code,codeRegion`
 
   try {
@@ -42,10 +42,11 @@ async function getDepartment(dep: number) {
 
     // Convertir la réponse en objet JSON
     const data = await response.json();
+    const dep = data[0].nom;
 
     // Renvoyer les données de la première ville trouvée
     
-    return data[0];
+    return data[0].nom;
   } catch (error) {
     console.error(error);
   }

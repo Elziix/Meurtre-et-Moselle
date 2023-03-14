@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-//import {add_marker} from "src/app/components/map-box/map-box.component"
+
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'dashfront';
+  title = 'Meurtre et Moselle';  
 }
 
 const apiUrl = "https://geo.api.gouv.fr/communes"; // URL de l'API Geo de l'API Gouv
@@ -45,14 +45,14 @@ export async function getDepartment(dep: number) {
     const dep = data[0].nom;
 
     // Renvoyer les données de la première ville trouvée
-    
+
     return data[0].nom;
   } catch (error) {
     console.error(error);
   }
 }
 
-export async function getLatitudeLongitude(nomCommune : String) {
+export async function getLatitudeLongitude(nomCommune: String) {
   // URL de la requête avec le nom de la commune en paramètre
   const url = `${apiUrl}?nom="${nomCommune}"&fields=centre&format=json&geometry=centre`;
 
@@ -65,7 +65,7 @@ export async function getLatitudeLongitude(nomCommune : String) {
     const lat = data[0].centre.coordinates[1];
     const lng = data[0].centre.coordinates[0];
 
-    console.log(lat,lng);
+    console.log(lat, lng);
 
     // Retourne un objet contenant la latitude et la longitude
     return {

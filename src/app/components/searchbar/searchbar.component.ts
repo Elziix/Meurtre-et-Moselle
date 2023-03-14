@@ -3,7 +3,8 @@ import * as mapboxgl from 'mapbox-gl';
 import {getCityData, getLatitudeLongitude, getDepartment} from "../../app.component"
 import { MapBoxComponent } from '../map-box/map-box.component';
 import { HttpClient } from '@angular/common/http';
-import { getAffairesByDepartement } from '../card/card.component';
+//import { getAffairesByDepartement } from '../card/card.component';
+import { CardComponent } from '../card/card.component';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { getAffairesByDepartement } from '../card/card.component';
 })
 export class SearchbarComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cardComponent: CardComponent) { }
   
   ngOnInit(): void { 
     
@@ -21,16 +22,18 @@ export class SearchbarComponent implements OnInit {
 
   nomCommune: string = '';
   coords: { lat: number, lng: number } | undefined;
-  
-  async search() {
-      const coords = await getLatitudeLongitude(this.nomCommune);
-      const data = await getCityData(coords?.lat, coords?.lng)
-      const dep = await getDepartment(data);
-      console.log(dep);
-      getAffairesByDepartement("Drôme");
 
-      
-    }
+  async search(city: string) {
+    // Utilisez la fonction getLatitudeLongitude() pour récupérer les coordonnées de la ville
+    getLatitudeLongitude(city).then(coord => {
+      // Utilisez la fonction getCityData() pour récupérer le code département de la ville
+      getCityData(coord?.lat, coord?.lng).then(cityData => {
+        console.log(cityData.codeDepartement); // Affichez le code département dans la console
+        const departement = cityData.codeDepartement;
+        const listeAffaires = this.cardComponent.getAffairesByDepartement(this.http, departement); // Appel de la fonction getAffairesByDepartement() du composant CardComponent
+      });
+    });
+  }
 }
 
 

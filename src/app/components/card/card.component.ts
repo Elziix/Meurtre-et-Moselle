@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -18,22 +18,30 @@ interface Tueur {
   styleUrls: ['./card.component.css']
 })
 
-export class CardComponent implements OnInit {
-  listeAffaires: Array<Tueur> = [];
-  @Output() depSelected = new EventEmitter<string>();
-  dep : string =  this.depSelected.toString();
+export class CardComponent implements OnInit, OnChanges {
+  listeAffaires: Array<Tueur>;
+  @Input() departement: string;
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient, private cdr: ChangeDetectorRef) { this.listeAffaires = [], this.departement = "Seine" }
 
-  ngOnInit(): void {
-    this.fetchAffaires(this.dep);
+  ngOnInit(): void { }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['departement'] && !changes['departement'].firstChange) {
+      console.log("Appel de fetchAffaire sur : ", changes['departement'].currentValue);
+      this.getAffaires(changes['departement'].currentValue).subscribe((listeAffaires: Tueur[]) => {
+        this.listeAffaires = listeAffaires;
+        console.log("Liste des affaires pour le département " + changes['departement'].currentValue + " : ", listeAffaires);
+      });
+    }
   }
 
-  getAffaires(departement: string): Observable<any[]> {
-    const url = "./assets/data.json"
+  getAffaires(departement: string): Observable<Array<Tueur>> {
+    const url = './assets/data.json';
+    console.log('Entre dans getAffaires');
     return this.http.get(url).pipe(
       map((data: any) => {
-        const listeAffaires: Array<any> = [];
+        const listeAffaires: Array<Tueur> = [];
         const entries = data.entries;
         entries.filter((entry: any) => {
           return entry.departement === departement;
@@ -43,7 +51,6 @@ export class CardComponent implements OnInit {
             departement: entry.departement,
             affaire: entry.affaire,
             resume: entry.resume,
-            comments: entry.comments,
             WikiPhoto: entry.WikiPhoto,
             WikiLink: entry.WikiLink
           });
@@ -53,18 +60,4 @@ export class CardComponent implements OnInit {
       })
     );
   }
-
-  fetchAffaires(departement : string): void {
-  //this.depSelected = departement;
-  console.log("entre dans fetchAffaires : ", this.dep);
-  this.getAffaires(departement).subscribe((result: Array<Tueur>) => {
-    this.listeAffaires = result;
-    this.depSelected.next(departement); // mettre à jour le composant parent avec le nouveau département
-  });
-}
-
-  
-
-
-
 }

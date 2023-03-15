@@ -19,7 +19,7 @@ import { CardComponent } from '../card/card.component';
   styleUrls: ['./map-box.component.css']
 })
 export class MapBoxComponent implements OnInit {
-  @Output() depSelected = new EventEmitter<string>();
+  departement : string = "";
   /**
    * Carte MapBox.
    */
@@ -89,7 +89,7 @@ export class MapBoxComponent implements OnInit {
    * Elle utilise la fonction getCityData pour récupérer les informations de la ville correspondante.
    * @param {object} event - L'événement click de la map.
    */
-  add_marker(event: { lngLat: mapboxgl.LngLat; }) {
+   add_marker(event: { lngLat: mapboxgl.LngLat; }) {
 
     // Initialise des coordonées à l'endroit où a été lancé le click event
     const coordinates = event.lngLat;
@@ -106,8 +106,12 @@ export class MapBoxComponent implements OnInit {
     }
 
     // Appelle la fonction getCityData nous donnant les informations concernant les coordonées clickées
-    getCityData(coordinates.lat, coordinates.lng).then(cityData => {
+    getCityData(coordinates.lat, coordinates.lng).then(async cityData => {
       console.log(cityData);
+      const depCode = cityData.codeDepartement;
+      const dep = await getDepartment(depCode);
+      const depName = dep.nom;
+      this.departement = depName;
     });
   }
 
@@ -140,10 +144,6 @@ export class MapBoxComponent implements OnInit {
   }
 
   searchDep(dep: string) { 
-    this.cardComponent?.fetchAffaires(dep);
+    this.departement = dep;
   }
 }
-
-
-
-

@@ -2,4 +2,7 @@
 <br><br>
 
 <!-- quand on fait une recherche, on affecte à notre output la fonction searchCity prenant en paramètre l'event de recherche (le nom entré dans la searchbar)-->
-<app-searchbar (citySelected)="searchCity($event)"></app-searchbar>
+<app-searchbar (citySelected)="searchCity($event)" (depSelected)="searchDep($event)"></app-searchbar>
+<div class="col-lg-5 mx-auto">
+    <app-card></app-card>
+</div>

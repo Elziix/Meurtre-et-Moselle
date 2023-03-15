@@ -1,7 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { getCityData, getDepartment, getLatitudeLongitude } from '../../app.component';
-import { SharedService } from '../shared.service';
-import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-searchbar',
@@ -12,6 +10,7 @@ export class SearchbarComponent implements OnInit {
 
   // citySelected est considéré comme un evenement de type String
   @Output() citySelected = new EventEmitter<string>();
+  @Output() depSelected = new EventEmitter<string>();
   //@Output() depSelected = new EventEmitter<string>();
 
   // Le nom de la commune recherchée
@@ -20,7 +19,7 @@ export class SearchbarComponent implements OnInit {
   // Les coordonées de cette commune
   coords: { lat: number, lng: number } | undefined = undefined;
 
-  constructor(private sharedService: SharedService, private cardComponent : CardComponent) { }
+  constructor() { }
 
   ngOnInit(): void { }
 
@@ -34,10 +33,7 @@ export class SearchbarComponent implements OnInit {
       const depName = dep.nom;
     
       this.citySelected.emit(this.nomCommune);
-      //this.depSelected.emit(depName);
-      this.sharedService.setDepName(depName);
-      this.cardComponent.fetchAffaires();
-
+      this.depSelected.emit(depName);
     }
   }
 }

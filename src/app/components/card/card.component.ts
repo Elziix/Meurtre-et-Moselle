@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { SharedService } from '../shared.service';
 
 interface Tueur {
   date: string;
@@ -20,20 +19,14 @@ interface Tueur {
 })
 
 export class CardComponent implements OnInit {
-  depName: string = '';
   listeAffaires: Array<Tueur> = [];
+  @Output() depSelected = new EventEmitter<string>();
+  dep : string =  this.depSelected.toString();
 
-  fetchAffaires(): void {
-    this.getAffaires(this.depName).subscribe((result: Array<Tueur>) => {
-      this.listeAffaires = result;
-    });
-  }
-
-  constructor(private http : HttpClient, private sharedService: SharedService) { }
+  constructor(private http : HttpClient) { }
 
   ngOnInit(): void {
-    this.depName = this.sharedService.depName;
-    this.getAffaires('Drôme');
+    this.fetchAffaires(this.dep);
   }
 
   getAffaires(departement: string): Observable<any[]> {
@@ -55,10 +48,21 @@ export class CardComponent implements OnInit {
             WikiLink: entry.WikiLink
           });
         });
+        console.log(listeAffaires);
         return listeAffaires;
       })
     );
   }
+
+  fetchAffaires(departement : string): void {
+  //this.depSelected = departement;
+  console.log("entre dans fetchAffaires : ", this.dep);
+  this.getAffaires(departement).subscribe((result: Array<Tueur>) => {
+    this.listeAffaires = result;
+    this.depSelected.next(departement); // mettre à jour le composant parent avec le nouveau département
+  });
+}
+
   
 
 

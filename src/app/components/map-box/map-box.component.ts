@@ -5,9 +5,10 @@
  * Il permet également d'ajouter des marqueurs à la carte et de rechercher les coordonnées d'une ville.
  * @packageDocumentation
  */
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
-import { getCityData, getLatitudeLongitude } from "../../app.component"
+import { getCityData, getDepartment, getLatitudeLongitude } from "../../app.component"
+import { CardComponent } from '../card/card.component';
 
 /** 
  * Composant pour l'affichage de la carte MapBox.
@@ -18,7 +19,7 @@ import { getCityData, getLatitudeLongitude } from "../../app.component"
   styleUrls: ['./map-box.component.css']
 })
 export class MapBoxComponent implements OnInit {
-  
+  @Output() depSelected = new EventEmitter<string>();
   /**
    * Carte MapBox.
    */
@@ -52,7 +53,7 @@ export class MapBoxComponent implements OnInit {
   /**
     * Constructeur du composant MapBox.
     */
-  constructor() { }
+  constructor(private cardComponent : CardComponent) { }
 
   /**
    * Initialise le composant MapBox.
@@ -137,5 +138,12 @@ export class MapBoxComponent implements OnInit {
         );
       });
   }
+
+  searchDep(dep: string) { 
+    this.cardComponent?.fetchAffaires(dep);
+  }
 }
+
+
+
 

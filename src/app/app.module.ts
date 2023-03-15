@@ -32,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [MapBoxComponent],
+  providers: [MapBoxComponent, CardComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

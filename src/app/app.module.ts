@@ -9,7 +9,6 @@ import { BackgroundComponent } from './components/background/background.componen
 import { ExplanationComponent } from './components/explanation/explanation.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { CardComponent } from './components/card/card.component';
-import { AboutComponent } from './components/about/about.component';
 import { UpArrowComponent } from './components/up-arrow/up-arrow.component';
 import { MapBoxComponent } from './components/map-box/map-box.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,7 +22,6 @@ import { HttpClientModule } from '@angular/common/http';
     ExplanationComponent,
     SearchbarComponent,
     CardComponent,
-    AboutComponent,
     UpArrowComponent,
     MapBoxComponent
   ],

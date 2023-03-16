@@ -1,15 +1,24 @@
- <!-- Responsive navbar-->
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <img class="fit-picture" src="http://image.noelshack.com/fichiers/2023/09/3/1677667210-image1.png" HSPACE="10">
         <a class="navbar-brand" href="#">Meurtre & Moselle</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">ABOUT US</a></li>
+                <li class="nav-item"><button (click)="showPopup = true">ABOUT US</button></li>
                 <li class="nav-item dropdown">
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<!-- Popup -->
+<div class="popup" *ngIf="showPopup">
+    <div class="popup-content">
+        <span class="close" (click)="showPopup = false">&times;</span>
+        <p>Meurtre et Moselle a été créé par une équipe de 4 étudiants sauf un mais je dirais pas qui ^^</p>
+    </div>
+</div>

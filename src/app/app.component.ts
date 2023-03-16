@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-//import {add_marker} from "src/app/components/map-box/map-box.component"
+import { Component, EventEmitter } from '@angular/core';
+
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,8 @@ export class AppComponent {
   title = 'dashfront';
   departement = '';
 }
+
+
 
 const apiUrl = "https://geo.api.gouv.fr/communes"; // URL de l'API Geo de l'API Gouv
 const apiUrlDep = "https://geo.api.gouv.fr/departements";

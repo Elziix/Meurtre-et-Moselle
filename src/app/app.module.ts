@@ -14,6 +14,7 @@ import { UpArrowComponent } from './components/up-arrow/up-arrow.component';
 import { MapBoxComponent } from './components/map-box/map-box.component';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [MapBoxComponent, CardComponent],
   bootstrap: [AppComponent]

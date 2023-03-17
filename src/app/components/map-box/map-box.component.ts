@@ -19,7 +19,7 @@ import { CardComponent } from '../card/card.component';
   styleUrls: ['./map-box.component.css']
 })
 export class MapBoxComponent implements OnInit {
-  departement : string = "";
+  departement: string = "";
   /**
    * Carte MapBox.
    */
@@ -33,17 +33,12 @@ export class MapBoxComponent implements OnInit {
   /**
    * Latitude de la carte.
    */
-  lat = 47;
+  lat = 46.2276;
 
   /**
    * Longitude de la carte.
    */
-  lng = 2.5;
-
-  /**
-   *Indique si la carte est initialisée ou non.
-   */
-  isMapInitialized = false;
+  lng = 2.2137;
 
   /**
    * Marqueur sur la carte.
@@ -53,7 +48,7 @@ export class MapBoxComponent implements OnInit {
   /**
     * Constructeur du composant MapBox.
     */
-  constructor(private cardComponent : CardComponent) { }
+  constructor(private cardComponent: CardComponent) { }
 
   /**
    * Initialise le composant MapBox.
@@ -70,9 +65,22 @@ export class MapBoxComponent implements OnInit {
     const map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
-      zoom: 5,
+      zoom: 4,
       center: [this.lng, this.lat]
     });
+
+    /*// Limites de vue sur la France
+    const bounds: mapboxgl.LngLatBoundsLike = [
+      [-5.4536, 41.1858], // Sud-ouest de la France
+      [9.5608, 51.2756] // Nord-est de la France
+    ];
+
+    map.setMaxBounds(bounds);
+    map.on('drag', () => {
+      (map as any).panInsideBounds(bounds, { animate: false });
+    });*/
+
+
 
     // Initialisation du marker
     this.marker = new mapboxgl.Marker();
@@ -89,7 +97,7 @@ export class MapBoxComponent implements OnInit {
    * Elle utilise la fonction getCityData pour récupérer les informations de la ville correspondante.
    * @param {object} event - L'événement click de la map.
    */
-   add_marker(event: { lngLat: mapboxgl.LngLat; }) {
+  add_marker(event: { lngLat: mapboxgl.LngLat; }) {
 
     // Initialise des coordonées à l'endroit où a été lancé le click event
     const coordinates = event.lngLat;
@@ -98,22 +106,43 @@ export class MapBoxComponent implements OnInit {
     console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
 
     // Si la map et le marker sont reconnus (donc bien initialisés)
-    if (this.map && this.marker) {
-      // On chnage les coordonées du marker puis on l'ajoute à la map
-      this.marker.setLngLat(coordinates).addTo(this.map);
-      // On zoom sur l'endroit marqué
-      this.map.flyTo({ center: coordinates, zoom: 8 });
-    }
 
-    // Appelle la fonction getCityData nous donnant les informations concernant les coordonées clickées
-    getCityData(coordinates.lat, coordinates.lng).then(async cityData => {
-      console.log(cityData);
-      const depCode = cityData.codeDepartement;
-      const dep = await getDepartment(depCode);
-      const depName = dep.nom;
-      this.departement = depName;
-    });
+
+
+    // Vérifie si les coordonnées se trouvent en France
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates.lng},${coordinates.lat}.json?types=country&access_token=${(mapboxgl as any).accessToken}`)
+      .then(response => response.json())
+      .then(data => {
+        const country = data.features[0].text;
+        if (country === 'France') {
+          // Si les coordonnées sont en France, récupère les informations concernant les coordonnées clickées
+          getCityData(coordinates.lat, coordinates.lng).then(async cityData => {
+            console.log(cityData);
+            const depCode = cityData.codeDepartement;
+            const dep = await getDepartment(depCode);
+            const depName = dep.nom;
+            this.departement = depName;
+          });
+          // Si la map et le marker sont reconnus (donc bien initialisés)
+          if (this.map && this.marker) {
+            // On change les coordonées du marker puis on l'ajoute à la map
+            this.marker.setLngLat(coordinates).addTo(this.map);
+            // On zoom sur l'endroit marqué
+            this.map.flyTo({ center: coordinates, zoom: 8 });
+          }
+        } else {
+          if (this.map) {
+            // Si les coordonnées sont en dehors de la France, affiche une popup avec un message
+            new mapboxgl.Popup()
+              .setLngLat(coordinates)
+              .setHTML(`<p>Meurtre et Moselle n'est pas disponible dans ce pays</p>`)
+              .addTo(this.map);
+          }
+        }
+      })
+      .catch(error => console.log(error));
   }
+
 
   /**
    * Cette fonction prend une ville en paramètre, recherche les coordonnées de cette ville et ajoute un marqueur à cet endroit de la map.
@@ -143,7 +172,7 @@ export class MapBoxComponent implements OnInit {
       });
   }
 
-  searchDep(dep: string) { 
+  searchDep(dep: string) {
     this.departement = dep;
   }
 }

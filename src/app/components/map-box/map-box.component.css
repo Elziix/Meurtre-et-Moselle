@@ -1,9 +1,9 @@
 .match-parent {
-    position:relative;
+    position: relative;
     width: 100px;
     height: 650px;
     min-height: 100%;
     min-width: 80%;
     display: block;
-    margin:auto;
+    margin: auto;
 }

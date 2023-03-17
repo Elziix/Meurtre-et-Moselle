@@ -75,6 +75,14 @@
             "departement": "Algérie française",
             "affaire": "Affaire de Foucauld",
             "resume": "Assassinat de Charles de Foucauld 58 ans prêtre ermite le 1er décembre 1916 dans le Sahara algérien abattu par des pillards."
+        },
+        {
+            "date": "2011",
+            "departement": "?",
+            "WikiPhoto": "https://www.voici.fr/imgre/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fvoi.2F2020.2F08.2F07.2Fd9ca7a24-eb00-424d-8e6a-9cf2108cd745.2Ejpeg/2048x1536/quality/80/xavier-dupont-de-ligonnes.jpeg",
+            "WikiLink": "https://fr.wikipedia.org/wiki/Affaire_Dupont_de_Ligonnès",
+            "affaire": "Affaire Dupont de Ligonnès",
+            "resume": "Le 6 avril 2011 à Nantes, quintuple meurtre des membres de la famille Dupont de Ligonnès à leur domicile."
         }
     ]
 }

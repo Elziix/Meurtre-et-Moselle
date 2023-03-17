@@ -1,6 +1,6 @@
 import { Component, EventEmitter } from '@angular/core';
 
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,13 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'dashfront';
   departement = '';
+
+  constructor(private titleService: Title) { }
+
+  ngOnInit() {
+    this.titleService.setTitle('Meurtre & Moselle');
+  }
 }
 
 

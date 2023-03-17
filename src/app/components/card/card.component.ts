@@ -55,6 +55,20 @@ export class CardComponent implements OnInit, OnChanges {
             WikiLink: entry.WikiLink
           });
         });
+        if (listeAffaires.length === 0) {
+          entries.filter((entry: any) => {
+            return entry.departement === "?";
+          }).forEach((entry: any) => {
+            listeAffaires.push({
+              date: entry.date,
+              departement: entry.departement,
+              affaire: entry.affaire,
+              resume: entry.resume,
+              WikiPhoto: entry.WikiPhoto,
+              WikiLink: entry.WikiLink
+            });
+          });
+        }
         console.log(listeAffaires);
         return listeAffaires;
       })

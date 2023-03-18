@@ -1,18 +1,20 @@
 <div class="card-group mx-3" *ngIf="listeAffaires.length > 0">
-    <div *ngFor="let Tueur of listeAffaires">
-        <div class="card bg-dark text-center mx-3 border border-secondary border-3" style="width: 15rem;">
-            <img src={{Tueur.WikiPhoto}} class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title text-danger">{{Tueur.affaire}}</h5>
-            <p class="card-text text-white">{{Tueur.date}}</p>
-            </div>
-            <ul class="list-group list-group-flush bg-dark">
-            <li class="list-group-item bg-dark text-white">{{Tueur.resume}}</li>
-            </ul>
-            <div class="card-body">
-            <a href={{Tueur.WikiLink}} class="card-link">Wikipedia</a>
-            <a href="#" class="card-link">Another link</a>
+    <ng-container *ngFor="let row of getRows()">
+        <div *ngFor="let Tueur of row" class="col-md-4">
+            <div class="card bg-dark text-center mx-3 border border-secondary border-3" style="width: 15rem;">
+                <img src={{Tueur.WikiPhoto}} class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-danger">{{Tueur.affaire}}</h5>
+                    <p class="card-text text-white">{{Tueur.date}}</p>
+                </div>
+                <ul class="list-group list-group-flush bg-dark">
+                    <li class="list-group-item bg-dark text-white">{{Tueur.resume}}</li>
+                </ul>
+                <div class="card-body">
+                    <a href={{Tueur.WikiLink}} class="card-link">Wikipedia</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
             </div>
         </div>
-   </div>
+    </ng-container>
 </div>

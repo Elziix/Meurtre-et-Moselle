@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+
 interface Tueur {
   date: string;
   departement: string;
@@ -74,4 +75,15 @@ export class CardComponent implements OnInit, OnChanges {
       })
     );
   }
+
+  getRows(): any[] {
+    const rows = [];
+    const numCols = 3;
+    for (let i = 0; i < this.listeAffaires.length; i += numCols) {
+      const row = this.listeAffaires.slice(i, i + numCols);
+      rows.push(row);
+    }
+    return rows;
+  }
+  
 }

@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-
 interface Tueur {
   date: string;
   departement: string;
@@ -23,7 +22,7 @@ export class CardComponent implements OnInit, OnChanges {
   listeAffaires: Array<Tueur>;
   @Input() departement: string;
 
-  constructor(private http: HttpClient, private cdr: ChangeDetectorRef) { this.listeAffaires = [], this.departement = "Seine" }
+  constructor(private http: HttpClient, private cdr: ChangeDetectorRef) { this.listeAffaires = [], this.departement = "" }
 
   ngOnInit(): void { }
 
@@ -33,6 +32,12 @@ export class CardComponent implements OnInit, OnChanges {
       this.getAffaires(changes['departement'].currentValue).subscribe((listeAffaires: Tueur[]) => {
         this.listeAffaires = listeAffaires;
         console.log("Liste des affaires pour le département " + changes['departement'].currentValue + " : ", listeAffaires);
+        setTimeout(() => {
+          window.scroll({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+          });
+        }, 1500); // Attendre 3 secondes avant de scroller vers le bas
       });
     }
   }

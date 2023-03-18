@@ -55,11 +55,17 @@ a {
     position: relative;
 }
 
-p {
+p, h4, h5 {
     font-size: 1.2rem;
     line-height: 1.5;
     color: #ffffff;
     margin: 0 0 20px;
+}
+
+.ul-popup {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #ffffff;
 }
 
 .close {

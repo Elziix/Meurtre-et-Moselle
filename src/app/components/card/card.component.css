@@ -1,0 +1,9 @@
+.card-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 20px;
+}

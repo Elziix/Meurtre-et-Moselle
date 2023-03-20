@@ -69,19 +69,6 @@ export class MapBoxComponent implements OnInit {
       center: [this.lng, this.lat]
     });
 
-    /*// Limites de vue sur la France
-    const bounds: mapboxgl.LngLatBoundsLike = [
-      [-5.4536, 41.1858], // Sud-ouest de la France
-      [9.5608, 51.2756] // Nord-est de la France
-    ];
-
-    map.setMaxBounds(bounds);
-    map.on('drag', () => {
-      (map as any).panInsideBounds(bounds, { animate: false });
-    });*/
-
-
-
     // Initialisation du marker
     this.marker = new mapboxgl.Marker();
 
@@ -107,9 +94,6 @@ export class MapBoxComponent implements OnInit {
 
     // Si la map et le marker sont reconnus (donc bien initialisés)
 
-
-
-    // Vérifie si les coordonnées se trouvent en France
     fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates.lng},${coordinates.lat}.json?types=country&access_token=${(mapboxgl as any).accessToken}`)
       .then(response => response.json())
       .then(data => {

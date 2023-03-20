@@ -1,7 +1,8 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 interface Tueur {
   date: string;
@@ -21,23 +22,27 @@ interface Tueur {
 export class CardComponent implements OnInit, OnChanges {
   listeAffaires: Array<Tueur>;
   @Input() departement: string;
+  //@ViewChild('scroll') scroll: ElementRef;
+  
 
-  constructor(private http: HttpClient, private cdr: ChangeDetectorRef) { this.listeAffaires = [], this.departement = "" }
+  constructor(private http: HttpClient, private cdr: ChangeDetectorRef, private router: Router) { this.listeAffaires = [], this.departement = "" }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { this.router.navigate(["/"]); }
 
   ngOnChanges(changes: SimpleChanges) {
+    const element = document.getElementById('scroll');
     if (changes['departement'] && !changes['departement'].firstChange) {
       console.log("Appel de fetchAffaire sur : ", changes['departement'].currentValue);
       this.getAffaires(changes['departement'].currentValue).subscribe((listeAffaires: Tueur[]) => {
         this.listeAffaires = listeAffaires;
         console.log("Liste des affaires pour le département " + changes['departement'].currentValue + " : ", listeAffaires);
         setTimeout(() => {
-          window.scroll({
-            top: document.body.scrollHeight,
-            behavior: 'smooth'
+          document.getElementById("scroll")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
           });
-        }, 1500); // Attendre 3 secondes avant de scroller vers le bas
+        }, 1000); // Attendre 1 seconde avant de scroller vers le bas
       });
     }
   }
@@ -90,5 +95,7 @@ export class CardComponent implements OnInit, OnChanges {
     }
     return rows;
   }
+
+  
   
 }

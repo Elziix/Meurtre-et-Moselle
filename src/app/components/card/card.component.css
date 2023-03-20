@@ -1,9 +1,10 @@
-.card-group {
-    display: flex;
+.card-columns {
     justify-content: center;
-    flex-wrap: wrap;
+    column-count: 3;
 }
 
 .card {
+    --column-break-inside: avoid;
+    display : inline-block;
     margin: 20px;
 }

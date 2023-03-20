@@ -2,7 +2,6 @@ import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnChange
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Router } from '@angular/router';
 
 interface Tueur {
   date: string;
@@ -22,12 +21,10 @@ interface Tueur {
 export class CardComponent implements OnInit, OnChanges {
   listeAffaires: Array<Tueur>;
   @Input() departement: string;
-  //@ViewChild('scroll') scroll: ElementRef;
   
+  constructor(private http: HttpClient, private cdr: ChangeDetectorRef) { this.listeAffaires = [], this.departement = "" }
 
-  constructor(private http: HttpClient, private cdr: ChangeDetectorRef, private router: Router) { this.listeAffaires = [], this.departement = "" }
-
-  ngOnInit(): void { this.router.navigate(["/"]); }
+  ngOnInit(): void { }
 
   ngOnChanges(changes: SimpleChanges) {
     const element = document.getElementById('scroll');

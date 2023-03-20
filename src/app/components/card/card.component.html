@@ -1,4 +1,4 @@
-<div id="scroll" class="card-group" *ngIf="listeAffaires.length > 0">
+<div id="scroll" class="card-columns" *ngIf="listeAffaires.length > 0">
     <ng-container *ngFor="let row of getRows()">
         <div *ngFor="let Tueur of row" class="col-md-4">
             <div class="card bg-dark text-center border border-secondary border-3" style="width: 15rem;">
@@ -11,7 +11,7 @@
                     <li class="list-group-item bg-dark text-white">{{Tueur.resume}}</li>
                 </ul>
                 <div class="card-body">
-                    <a href={{Tueur.WikiLink}} target="_blank" class="card-link">Wikipedia</a>
+                    <a href={{Tueur.WikiLink}} class="card-link">Wikipedia</a>
                 </div>
             </div>
         </div>

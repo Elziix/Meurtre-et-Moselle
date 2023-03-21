@@ -1,10 +1,38 @@
-.card-columns {
-    justify-content: center;
-    column-count: 3;
+@media (min-width: 100px) {
+    .card-columns {
+        column-count: 1;
+        column-gap: 20px;
+    }
+
+    .card {
+        display: inline-block;
+        margin: 0 0 20px;
+        width: auto;
+    }
 }
 
-.card {
-    --column-break-inside: avoid;
-    display : inline-block;
-    margin: 20px;
+@media (min-width: 576px) {
+    .card-columns {
+        column-count: 2;
+        column-gap: 20px;
+    }
+
+    .card {
+        display: inline-block;
+        margin: 0 0 20px;
+        width: 200%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-columns {
+        column-count: 3;
+        column-gap: 20px;
+    }
+
+    .card {
+        display: inline-block;
+        margin: 0 0 20px;
+        width: 400%;
+    }
 }

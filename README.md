@@ -1,7 +1,23 @@
-# Dashfront
+# Meurtre et Moselle
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.0.
+Ce projet à été généré par [Angular CLI](https://github.com/angular/angular-cli) version 13.1.0.
 
+## Qui sommes nous ?
+Meurtre et Moselle a été developpé par une équipe de 4 étudiants lors de leur 3ème année de licence informatique à la faculté du Mans.
+* Killian Rattier
+* Maël Vassenet
+* Cyprien Pennachi
+* Pierre Rocher
+
+## Qu'est ce que Meurtre et Moselle ?
+Meurtre et Moselle est un site web vous permettant de rechercher les affaires criminelles s'étant passées dans votre département. Notre site est fonctionnel uniquement en France. Les affaires répertoriées sont actuellement à jour.
+
+## Fonctionnalités
+* Rechercher les affaires en cliquant sur une carte
+* Rechercher en indiquant une ville dans la barre de recherche
+* Affichage des affaires criminelles dans un département donné
+
+# Utilisation d'Angular
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

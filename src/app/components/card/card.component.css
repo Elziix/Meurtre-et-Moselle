@@ -24,15 +24,13 @@
     }
 }
 
-@media (min-width: 1200px) {
-    .card-columns {
-        column-count: 3;
-        column-gap: 20px;
-    }
+.card-columns {
+    column-count: 3;
+    column-gap: 20px;
+}
 
-    .card {
-        display: inline-block;
-        margin: 0 0 20px;
-        width: 400%;
-    }
+.card {
+    display: inline-block;
+    margin: 0 0 20px;
+    width: 400%;
 }

@@ -1,4 +1,4 @@
-@media (min-width: 100px) {
+@media (min-width: 200px) {
     .card-columns {
         column-count: 1;
         column-gap: 20px;
@@ -7,7 +7,7 @@
     .card {
         display: inline-block;
         margin: 0 0 20px;
-        width: auto;
+        width: 100%;
     }
 }
 
@@ -20,17 +20,19 @@
     .card {
         display: inline-block;
         margin: 0 0 20px;
-        width: 200%;
+        width: 300%;
     }
 }
 
-.card-columns {
-    column-count: 3;
-    column-gap: 20px;
-}
-
-.card {
-    display: inline-block;
-    margin: 0 0 20px;
-    width: 400%;
+@media (min-width: 1000px){
+    .card-columns {
+        column-count: 3;
+        column-gap: 20px;
+    }
+    
+    .card {
+        display: inline-block;
+        margin: 0 0 20px;
+        width: 400%;
+    }
 }

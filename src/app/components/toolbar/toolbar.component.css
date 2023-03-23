@@ -12,7 +12,8 @@ a {
     font-size: 120%;
 }
 
-.navbar-nav .nav-item button {
+
+button {
     background: none;
     border: none;
     cursor: pointer;
@@ -25,12 +26,12 @@ a {
     text-size-adjust: 20px;
     color: aliceblue;
     font-size: 120%;
-  }
-  
-  .navbar-nav .nav-item button:hover {
+}
+
+.navbar-nav .nav-item button:hover {
     text-decoration: none;
-  }
-  
+}
+
 
 .popup {
     display: flex;
@@ -55,7 +56,9 @@ a {
     position: relative;
 }
 
-p, h4, h5 {
+p,
+h4,
+h5 {
     font-size: 1.2rem;
     line-height: 1.5;
     color: #ffffff;

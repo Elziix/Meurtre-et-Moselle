@@ -24,7 +24,9 @@ export class CardComponent implements OnInit, OnChanges {
   
   constructor(private http: HttpClient, private cdr: ChangeDetectorRef) { this.listeAffaires = [], this.departement = "" }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     const element = document.getElementById('scroll');
@@ -33,6 +35,12 @@ export class CardComponent implements OnInit, OnChanges {
       this.getAffaires(changes['departement'].currentValue).subscribe((listeAffaires: Tueur[]) => {
         this.listeAffaires = listeAffaires;
         console.log("Liste des affaires pour le département " + changes['departement'].currentValue + " : ", listeAffaires);
+        var cardColumns = document.querySelector('.card-columns');
+        if (this.listeAffaires.length < 3) {
+            cardColumns?.classList.add('center-cards');
+        } else {
+            cardColumns?.classList.add('three-columns');
+        }
         setTimeout(() => {
           document.getElementById("scroll")?.scrollIntoView({
             behavior: "smooth",

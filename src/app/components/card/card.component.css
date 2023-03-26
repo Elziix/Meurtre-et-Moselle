@@ -1,5 +1,5 @@
 @media (min-width: 200px) {
-    .card-columns {
+    .cards-container {
         column-count: 1;
         column-gap: 20px;
     }
@@ -12,9 +12,18 @@
 }
 
 @media (min-width: 576px) {
-    .card-columns {
-        column-count: 2;
+    .cards-container {
         column-gap: 20px;
+    }
+
+    /* Exception pour une seule affaire */
+    .cards-container[data-count="1"] {
+        column-count: 1;
+    }
+
+    /* Les autres cas */
+    .cards-container:not([data-count="1"]) {
+        column-count: 2;
     }
 
     .card {
@@ -24,15 +33,30 @@
     }
 }
 
-@media (min-width: 1000px){
-    .card-columns {
-        column-count: 3;
+@media (min-width: 1000px) {
+    .cards-container {
         column-gap: 20px;
     }
-    
+
     .card {
         display: inline-block;
         margin: 0 0 20px;
         width: 400%;
     }
+
+    /* Exception pour une seule affaire */
+    .cards-container[data-count="1"] {
+        column-count: 1;
+    }
+
+    /* Exception pour deux affaires */
+    .cards-container[data-count="2"] {
+        column-count: 2;
+    }
+
+    /* Les autres cas */
+    .cards-container:not([data-count="1"]):not([data-count="2"]) {
+        column-count: 3;
+    }
+
 }

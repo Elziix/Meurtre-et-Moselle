@@ -1,3 +1,9 @@
+/**
+ * Module de composant pour l'utilisation de fonctions globales.
+ * @remarks
+ * Ce composant est chargé de définir des fonctions qui seront utilisables dans d'autres modules.
+ * @packageDocumentation
+ */
 import { Component, EventEmitter } from '@angular/core';
 
 import { Title } from '@angular/platform-browser';
@@ -17,17 +23,25 @@ export class AppComponent {
   }
 }
 
-
-
-const apiUrl = "https://geo.api.gouv.fr/communes"; // URL de l'API Geo de l'API Gouv
+/** URLS de l'API geo  */
+const apiUrl = "https://geo.api.gouv.fr/communes";
 const apiUrlDep = "https://geo.api.gouv.fr/departements";
 
+/**
+ * Renvoie les informations concernant une ville
+ * @param city la ville concernée
+ */
 async function onSearchCity(city: string) {
   const coord = await getLatitudeLongitude(city);
   const { code } = await getCityData(coord?.lng, coord?.lat);
   const departement = code.substring(0, 2); // On récupère les deux premiers caractères du code postal qui correspondent au code du département
 }
 
+/**
+ * Renvoie les informations d'une ville suivant des coordonées
+ * @param lati la latitude 
+ * @param longi la longitude
+ */
 export async function getCityData(lati: number, longi: number) {
   const url = `${apiUrl}?lat=${lati}&lon=${longi}&fields=nom,code,codesPostaux,siren,codeEpci,codeDepartement,codeRegion,population&format=json`;
 
@@ -48,6 +62,10 @@ export async function getCityData(lati: number, longi: number) {
   }
 }
 
+/**
+ * Renvoie le nom du département suivant son numéro
+ * @param dep le numéro du département
+ */
 export async function getDepartment(dep: number) {
   const url = `${apiUrlDep}?code=${dep}&fields=nom,code,codeRegion`
 
@@ -66,6 +84,10 @@ export async function getDepartment(dep: number) {
   }
 }
 
+/**
+ * Renvoie les coordonées d'une ville en entrant son nom
+ * @param nomCommune le nom de la ville 
+ */
 export async function getLatitudeLongitude(nomCommune: String) {
   // URL de la requête avec le nom de la commune en paramètre
   const url = `${apiUrl}?nom="${nomCommune}"&fields=centre&format=json&geometry=centre`;

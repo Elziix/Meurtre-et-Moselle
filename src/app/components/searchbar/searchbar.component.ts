@@ -1,3 +1,9 @@
+/**
+ * Module de composant pour l'affichage et l'utilisation de la searchbar.
+ * @remarks
+ * Ce composant est chargé d'effectuer la communication entre la searchbar et la map et les affaires
+ * @packageDocumentation
+ */
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { getCityData, getDepartment, getLatitudeLongitude } from '../../app.component';
 
@@ -8,22 +14,29 @@ import { getCityData, getDepartment, getLatitudeLongitude } from '../../app.comp
 })
 export class SearchbarComponent implements OnInit {
 
-  // citySelected est considéré comme un evenement de type String
+  /**
+   * citySelected est considéré comme un evenement de type String
+   */ 
   @Output() citySelected = new EventEmitter<string>();
   @Output() depSelected = new EventEmitter<string>();
-  //@Output() depSelected = new EventEmitter<string>();
 
-  // Le nom de la commune recherchée
+  /**
+   * Le nom de la commune recherchée
+   */ 
   nomCommune: string = '';
 
-  // Les coordonées de cette commune
+  /**
+   * Les coordonées de cette commune
+   */
   coords: { lat: number, lng: number } | undefined = undefined;
 
   constructor() { }
 
   ngOnInit(): void { }
 
-  // Fonction asynchrone appelant searchCity avec le nom de la commune
+  /**
+   * Fonction asynchrone appelant searchCity avec le nom de la commune
+   */ 
   async search() {
     const coords = await getLatitudeLongitude(this.nomCommune);
     if (coords) {

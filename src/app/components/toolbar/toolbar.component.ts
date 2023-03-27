@@ -1,3 +1,9 @@
+/**
+ * Module de composant pour l'affichage et l'utilisation de la toolbar.
+ * @remarks
+ * Ce composant est chargé d'effectuer l'affichage de la toolbar et du pop-up About us
+ * @packageDocumentation
+ */
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 

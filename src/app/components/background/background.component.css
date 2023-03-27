@@ -1,15 +1,17 @@
+   /* L'image à mettre en background */
    .bg-image {
-    /* The image used */
+    /* Le lien de l'image */
     background-image: url("https://tinyurl.com/42dee49v");
 
     background-position: top;
     background-repeat: repeat;
     background-size: 100%;
   
-    /* Full height */
+    /* Rempli 100% de l'écran */
     height: 100%;
   } 
 
+/* Filtre pour flouter le fond */
   .blur{
     backdrop-filter: blur(10px) saturate(70%);
   }

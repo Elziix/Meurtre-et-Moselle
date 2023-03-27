@@ -45,6 +45,91 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                     </ul>
                 </li>
+                    <li class="chapter modules">
+                        <a data-type="chapter-link" href="modules.html">
+                            <div class="menu-toggler linked" data-toggle="collapse" ${ isNormalMode ?
+                                'data-target="#modules-links"' : 'data-target="#xs-modules-links"' }>
+                                <span class="icon ion-ios-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="icon ion-ios-arrow-down"></span>
+                            </div>
+                        </a>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
+                            <li class="link">
+                                <a href="modules/AppModule.html" data-type="entity-link" >AppModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#components-links-module-AppModule-53f3062b40f8b0467b59ad4df3d70a59390ea4ab8357f034b73923e27cedf07793ed3e9e772f56dad04ebc124a756c260fbd63de3c6b8fac1ee34729a93f92a5"' : 'data-target="#xs-components-links-module-AppModule-53f3062b40f8b0467b59ad4df3d70a59390ea4ab8357f034b73923e27cedf07793ed3e9e772f56dad04ebc124a756c260fbd63de3c6b8fac1ee34729a93f92a5"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Components</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-53f3062b40f8b0467b59ad4df3d70a59390ea4ab8357f034b73923e27cedf07793ed3e9e772f56dad04ebc124a756c260fbd63de3c6b8fac1ee34729a93f92a5"' :
+                                            'id="xs-components-links-module-AppModule-53f3062b40f8b0467b59ad4df3d70a59390ea4ab8357f034b73923e27cedf07793ed3e9e772f56dad04ebc124a756c260fbd63de3c6b8fac1ee34729a93f92a5"' }>
+                                            <li class="link">
+                                                <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AppComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/BackgroundComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >BackgroundComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/CardComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CardComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/ExplanationComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ExplanationComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/MapBoxComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >MapBoxComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/SearchbarComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SearchbarComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/ToolbarComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ToolbarComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/UpArrowComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >UpArrowComponent</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </li>
+                            <li class="link">
+                                <a href="modules/AppRoutingModule.html" data-type="entity-link" >AppRoutingModule</a>
+                            </li>
+                </ul>
+                </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#interfaces-links"' :
+                            'data-target="#xs-interfaces-links"' }>
+                            <span class="icon ion-md-information-circle-outline"></span>
+                            <span>Interfaces</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
+                            <li class="link">
+                                <a href="interfaces/Tueur.html" data-type="entity-link" >Tueur</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#miscellaneous-links"'
+                            : 'data-target="#xs-miscellaneous-links"' }>
+                            <span class="icon ion-ios-cube"></span>
+                            <span>Miscellaneous</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
+                            <li class="link">
+                                <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                            </li>
+                            <li class="link">
+                                <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
+                            </li>
+                        </ul>
+                    </li>
+                        <li class="chapter">
+                            <a data-type="chapter-link" href="routes.html"><span class="icon ion-ios-git-branch"></span>Routes</a>
+                        </li>
                     <li class="chapter">
                         <a data-type="chapter-link" href="coverage.html"><span class="icon ion-ios-stats"></span>Documentation coverage</a>
                     </li>

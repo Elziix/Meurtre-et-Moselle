@@ -1,3 +1,10 @@
+/**
+ * Module de composant pour l'affichage du background en flouté
+ * @remarks
+ * Ce composant est chargé d'afficher un fond flouté sur notre site web
+ * @packageDocumentation
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

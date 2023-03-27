@@ -1,3 +1,4 @@
+/* Adaptative card pour petits écrans */
 @media (min-width: 200px) {
     .cards-container {
         column-count: 1;
@@ -11,6 +12,7 @@
     }
 }
 
+/* Adaptative card pour moyens écrans */
 @media (min-width: 576px) {
     .cards-container {
         column-gap: 20px;
@@ -33,6 +35,7 @@
     }
 }
 
+/* Adaptative card pour grands écrans */
 @media (min-width: 1000px) {
     .cards-container {
         column-gap: 20px;
